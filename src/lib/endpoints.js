@@ -10,20 +10,32 @@ function handleSuccess(response) {
     return response.data
 }
 
-const getTopics = () => {
-    return NEWS.get('/topics')
-        .then(handleSuccess)
+function handleError(error) {
+    if (error.code == "ERR_BAD_REQUEST")
+        return new Error("Data does not exist")
+
+    return new Error(error.message)
 }
 
-const getArticles = ({ topic, sort_by, order } = {}) => {
-    return NEWS.get('/articles', {
+const getTopics = () =>
+    NEWS.get('/topics')
+        .then(handleSuccess);
+
+const fetchAll = ({ topic, sort_by, order } = {}) =>
+    NEWS.get('/articles', {
         params: {
             topic, sort_by, order
         }
     }).then(handleSuccess)
-}
+
+
+const fetch = (article_id) =>
+    NEWS.get(`/articles/${article_id}`)
+        .then(handleSuccess)
+        .catch(handleError)
 
 export default {
     getTopics,
-    getArticles
+    fetchAll,
+    fetch
 }

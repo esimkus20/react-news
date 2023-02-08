@@ -6,12 +6,22 @@ import API from '../lib/endpoints'
 
 function Home({ topic }) {
     let [articles, setArticles] = useState(null)
+    let [loading, setLoading] = useState(true)
 
     useEffect(() => {
         API.getArticles({
             topic: topic != 'home' ? topic : null
-        }).then(a => setArticles(a.articles))
+        }).then(a => {
+            setArticles(a.articles)
+            setLoading(false)
+        })
     }, [topic])
+
+    if (loading) return (
+        <main style={{ 'text-align': 'center' }}>
+            <h1>Loading...</h1>
+        </main>
+    )
 
     return (
         <main className="articles">

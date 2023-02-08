@@ -9,7 +9,7 @@ function Home({ topic }) {
     let [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        API.getArticles({
+        API.fetchAll({
             topic: topic != 'home' ? topic : null
         }).then(a => {
             setArticles(a.articles)
@@ -18,7 +18,7 @@ function Home({ topic }) {
     }, [topic])
 
     if (loading) return (
-        <main style={{ 'text-align': 'center' }}>
+        <main style={{ 'textAlign': 'center' }}>
             <h1>Loading...</h1>
         </main>
     )

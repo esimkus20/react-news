@@ -136,19 +136,54 @@ body {
 }
 
 .article {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   max-width: 30rem;
 
+  .space {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+
   .title {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+  }
 
-    h2,
-    h3 {
-      margin: 0;
-    }
+  .comments {
+    padding-top: 1rem;
+    border-top: 1px solid white;
 
-    .space {
-      display: flex;
-      justify-content: space-between;
+    .comment {
+      border: 1px solid #FFFFFF;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+
+      p {
+        margin: 5px 0 0 0;
+      }
     }
+  }
+}
+
+.votes {
+  .vote {
+    margin-left: 0.5rem;
+  }
+
+  .like {
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+    margin: auto 0;
+    text-align: center;
+    width: inherit;
   }
 }

@@ -5,6 +5,7 @@ import API from '../lib/endpoints'
 import { toProperCase, formatDate } from '../lib/functions'
 
 import Comments from '../components/Comments'
+import Vote from '../components/Vote'
 
 function Article() {
     let { article_id } = useParams()
@@ -38,7 +39,10 @@ function Article() {
         <main className="article">
             <section className='title'>
                 <span>{toProperCase(data.topic)}:{data.article_id}</span>
-                <h2>{data.title}</h2>
+                <div className="space">
+                    <h2>{data.title}</h2>
+                    <Vote id={data.article_id} votes={data.votes} isLike={true} />
+                </div>
                 <div className="space">
                     <h3>{data.author}</h3>
                     <h3>{formatDate(data.created_at)}</h3>

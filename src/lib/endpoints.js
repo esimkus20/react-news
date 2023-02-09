@@ -38,9 +38,14 @@ const comments = (article_id) =>
     NEWS.get(`/articles/${article_id}/comments`)
         .then(handleSuccess)
 
+const updateVotes = (id, value) =>
+    NEWS.patch(`/articles/${id}`, { inc_votes: value })
+        .then(handleSuccess)
+
 export default {
     getTopics,
     fetchAll,
     fetch,
-    comments
+    comments,
+    updateVotes
 }

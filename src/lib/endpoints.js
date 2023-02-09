@@ -5,7 +5,8 @@ const NEWS = axios.create({
 })
 
 function handleSuccess(response) {
-    if (response.status !== 200) return
+    console.log(response)
+    if (![200,201].includes(response.status)) return
 
     return response.data
 }
@@ -42,10 +43,16 @@ const updateVotes = (id, value) =>
     NEWS.patch(`/articles/${id}`, { inc_votes: value })
         .then(handleSuccess)
 
+const addComment = (id, username, body) =>
+    NEWS.post(`/articles/${id}/comments`, {
+        username, body
+    }).then(handleSuccess)
+
 export default {
     getTopics,
     fetchAll,
     fetch,
     comments,
-    updateVotes
+    updateVotes,
+    addComment
 }

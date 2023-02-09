@@ -34,8 +34,13 @@ const fetch = (article_id) =>
         .then(handleSuccess)
         .catch(handleError)
 
+const comments = (article_id) =>
+    NEWS.get(`/articles/${article_id}/comments`)
+        .then(handleSuccess)
+
 export default {
     getTopics,
     fetchAll,
-    fetch
+    fetch,
+    comments
 }

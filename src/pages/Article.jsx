@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import API from '../lib/endpoints'
 import { toProperCase, formatDate } from '../lib/functions'
 
+import Comments from '../components/Comments'
+
 function Article() {
     let { article_id } = useParams()
 
@@ -43,6 +45,7 @@ function Article() {
                 </div>
             </section>
             <p>{data.body}</p>
+            <Comments article={data} />
         </main>
     )
 }

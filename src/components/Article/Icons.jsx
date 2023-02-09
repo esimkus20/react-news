@@ -20,7 +20,7 @@ function Icons({ votes, comments }) {
                 </div>
                 <div className="icon">
                     <Votes />
-                    <span>{votes}</span>
+                    <span>{Math.abs(votes)}</span>
                 </div>
             </div>
         </IconContext.Provider>

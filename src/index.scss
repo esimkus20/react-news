@@ -70,7 +70,7 @@ body {
 }
 
 .articles {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0 1rem;
@@ -135,14 +135,15 @@ body {
   }
 }
 
+.space {
+  display: flex;
+  justify-content: space-between;
+}
+
 .article {
   margin-top: 1.5rem;
   max-width: 30rem;
 
-  .space {
-    display: flex;
-    justify-content: space-between;
-  }
 
   h2,
   h3 {
@@ -211,5 +212,13 @@ body {
     margin: auto 0;
     text-align: center;
     width: inherit;
+  }
+}
+
+.sort {
+  margin-top: 1rem;
+
+  label {
+    margin-right: 0.5rem;
   }
 }

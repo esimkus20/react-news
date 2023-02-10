@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import API from '../../lib/endpoints'
 import Comment from "./Comment";
+import Form from './Form'
 
 function Comments({ article }) {
     let [comments, setComments] = useState([]);
@@ -11,6 +12,10 @@ function Comments({ article }) {
             .then(c => setComments(c.comments))
     }, [])
 
+    function addComment(comment) {
+        setComments([comment, ...comments])
+    }
+
     if (!article.comment_count) return (
         <h1 style={{ textAlign: 'center' }}>
             No comments
@@ -19,6 +24,7 @@ function Comments({ article }) {
 
     return (
         <section className="comments">
+            <Form id={article.article_id} add={addComment} />
             {comments?.map(comment => (
                 <Comment
                     key={comment.comment_id}

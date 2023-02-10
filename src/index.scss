@@ -154,6 +154,29 @@ body {
     border-bottom: 1px solid white;
   }
 
+  .form {
+    margin-bottom: 0.5rem;
+
+    .username {
+      margin: 0.25rem 0 0.5rem 0;
+      display: grid;
+      grid-template-columns: 0.8fr 0.2fr;
+      gap: 1rem;
+
+      input[type=text] {
+        width: 100%;
+      }
+
+      input[type=button] {
+        width: 105%
+      }
+    }
+
+    textarea {
+      width: 100%;
+    }
+  }
+
   .comments {
     padding-top: 1rem;
     border-top: 1px solid white;

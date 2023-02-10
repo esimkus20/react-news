@@ -9,20 +9,22 @@ function Form({ id, add }) {
     function submit() {
         NEWS.addComment(id, username, comment)
             .then(data => {
+                if (data instanceof Error) return;
+
                 add(data.comment)
                 setUsername('')
                 setComment('')
 
                 document
                     .getElementsByClassName('form')[0]
-                .reset()
+                    .reset()
             })
     }
 
     return (
         <>
             <h3>Comment</h3>
-            <form class='form'>
+            <form className='form'>
                 <div className="username">
                     <input required type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
                     <input type="button" value="Submit" onClick={submit} />

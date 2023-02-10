@@ -6,6 +6,9 @@ import Topics from './components/Topics'
 import Home from './pages/Home'
 import Article from './pages/Article'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
   let [topic, setTopic] = useState('home')
 
@@ -18,6 +21,7 @@ function App() {
           <Route path="/" element={<Home topic={topic} />} />
           <Route path="/:article_id" element={<Article />} />
         </Routes>
+        <ToastContainer />
       </div>
     </BrowserRouter>
   )

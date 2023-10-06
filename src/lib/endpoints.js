@@ -2,7 +2,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const NEWS = axios.create({
-    baseURL: 'http://news.nedas.codes/api'
+    baseURL: 'https://news.nedas.codes/api'
 })
 
 function handleSuccess(response) {
